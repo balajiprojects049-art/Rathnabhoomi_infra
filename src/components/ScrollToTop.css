@@ -1,0 +1,140 @@
+/* ========================================
+   SCROLL TO TOP BUTTON STYLES
+   ======================================== */
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-gold);
+    color: var(--primary-blue);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(241, 196, 15, 0.4);
+    z-index: 998;
+    transition: all var(--transition-base);
+    font-family: var(--font-primary);
+    overflow: hidden;
+}
+
+.scroll-to-top::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    border-radius: 50%;
+}
+
+.scroll-to-top:hover::before {
+    opacity: 1;
+}
+
+.scroll-to-top:hover {
+    box-shadow: 0 15px 40px rgba(241, 196, 15, 0.6);
+}
+
+.scroll-to-top:hover .scroll-icon,
+.scroll-to-top:hover .scroll-text {
+    color: var(--primary-white);
+}
+
+.scroll-icon {
+    font-size: 1.25rem;
+    position: relative;
+    z-index: 2;
+    transition: all var(--transition-base);
+    margin-bottom: 2px;
+}
+
+.scroll-text {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    position: relative;
+    z-index: 2;
+    transition: all var(--transition-base);
+}
+
+/* Pulse Animation */
+@keyframes pulse-ring {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.scroll-to-top::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border: 3px solid var(--primary-gold);
+    border-radius: 50%;
+    animation: pulse-ring 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    pointer-events: none;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+    .scroll-to-top {
+        width: 50px;
+        height: 50px;
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+
+    .scroll-icon {
+        font-size: 1.125rem;
+    }
+
+    .scroll-text {
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 1rem;
+        right: 1rem;
+    }
+
+    .scroll-icon {
+        font-size: 1rem;
+    }
+
+    .scroll-text {
+        font-size: 0.55rem;
+    }
+}
+
+/* Accessibility */
+.scroll-to-top:focus {
+    outline: 3px solid var(--primary-gold);
+    outline-offset: 3px;
+}
+
+/* Dark backgrounds adjustment */
+@media (prefers-color-scheme: dark) {
+    .scroll-to-top {
+        box-shadow: 0 10px 30px rgba(241, 196, 15, 0.5);
+    }
+}

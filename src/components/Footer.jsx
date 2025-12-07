@@ -1,0 +1,151 @@
+import { motion } from 'framer-motion';
+import {
+    FaFacebookF,
+    FaTwitter,
+    FaInstagram,
+    FaLinkedinIn,
+    FaYoutube,
+    FaPhone,
+    FaEnvelope,
+    FaMapMarkerAlt,
+    FaHeart
+} from 'react-icons/fa';
+import './Footer.css';
+
+const Footer = () => {
+    const currentYear = new Date().getFullYear();
+
+    const quickLinks = [
+        { name: 'About Us', href: '#about' },
+        { name: 'Services', href: '#services' },
+        { name: 'Properties', href: '#properties' },
+        { name: 'Testimonials', href: '#testimonials' },
+        { name: 'Contact', href: '#contact' },
+    ];
+
+    const services = [
+        'Open Plots',
+        'Construction Services',
+        'Architecture Planning',
+        'Interior Design',
+        'Layout Development',
+        'Real Estate Projects'
+    ];
+
+    const socialLinks = [
+        { icon: <FaFacebookF />, href: 'https://www.facebook.com/share/15w5k34Hop/', label: 'Facebook' },
+        { icon: <FaInstagram />, href: 'https://www.instagram.com/ratnabhoomiinfra?igsh=YjFwdzhoNjl4ajU4', label: 'Instagram' },
+        { icon: <FaYoutube />, href: '#', label: 'YouTube' },
+    ];
+
+    return (
+        <footer className="footer">
+            <div className="footer-main">
+                <div className="container">
+                    <div className="footer-grid">
+                        {/* Company Info */}
+                        <div className="footer-column">
+                            <div className="footer-logo">
+                                <span className="logo-text">
+                                    <span className="logo-royal">ROYAL</span>
+                                    <span className="logo-estates">ESTATES</span>
+                                </span>
+                            </div>
+                            <p className="footer-description">
+                                Building dreams with excellence since 2008. Premium construction and real estate
+                                solutions that stand the test of time.
+                            </p>
+                            <div className="footer-social">
+                                {socialLinks.map((social, index) => (
+                                    <motion.a
+                                        key={index}
+                                        href={social.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="social-link"
+                                        aria-label={social.label}
+                                        whileHover={{ scale: 1.1, y: -3 }}
+                                        whileTap={{ scale: 0.95 }}
+                                    >
+                                        {social.icon}
+                                    </motion.a>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Quick Links */}
+                        <div className="footer-column">
+                            <h3 className="footer-title">Quick Links</h3>
+                            <ul className="footer-links">
+                                {quickLinks.map((link, index) => (
+                                    <li key={index}>
+                                        <a href={link.href}>{link.name}</a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Our Services */}
+                        <div className="footer-column">
+                            <h3 className="footer-title">Our Services</h3>
+                            <ul className="footer-links">
+                                {services.map((service, index) => (
+                                    <li key={index}>
+                                        <span>{service}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Contact Info */}
+                        <div className="footer-column">
+                            <h3 className="footer-title">Contact Info</h3>
+                            <div className="footer-contact">
+                                <div className="contact-item">
+                                    <FaMapMarkerAlt />
+                                    <span>10/3/23, Yenugonda, Mahaboobnagar, Telangana - 509001</span>
+                                </div>
+                                <div className="contact-item">
+                                    <FaPhone />
+                                    <a href="tel:+919440071176">+91 94400 71176</a>
+                                </div>
+                                <div className="contact-item">
+                                    <FaEnvelope />
+                                    <a href="mailto:rathnabhoomiinfra@gmail.com">rathnabhoomiinfra@gmail.com</a>
+                                </div>
+                            </div>
+                            <div className="footer-hours">
+                                <strong>Business Hours:</strong>
+                                <p>Mon - Sat: 9:00 AM - 7:00 PM</p>
+                                <p>Sunday: By Appointment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Footer Bottom */}
+            <div className="footer-bottom">
+                <div className="container">
+                    <div className="footer-bottom-content">
+                        <p className="copyright">
+                            © {currentYear} Royal Estates. All Rights Reserved.
+                        </p>
+                        <p className="made-with">
+                            Made with <FaHeart className="heart-icon" /> by Royal Estates Team
+                        </p>
+                        <div className="footer-bottom-links">
+                            <a href="#">Privacy Policy</a>
+                            <span className="separator">|</span>
+                            <a href="#">Terms of Service</a>
+                            <span className="separator">|</span>
+                            <a href="#">Sitemap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    );
+};
+
+export default Footer;

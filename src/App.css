@@ -1,0 +1,64 @@
+/* ========================================
+   APP SPECIFIC STYLES
+   ======================================== */
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: var(--primary-gold);
+  color: var(--primary-blue);
+}
+
+::-moz-selection {
+  background: var(--primary-gold);
+  color: var(--primary-blue);
+}
+
+/* Loading Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.App {
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Accessibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--primary-gold);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+
+  .navbar,
+  .footer,
+  .btn,
+  .contact-form {
+    display: none;
+  }
+}
