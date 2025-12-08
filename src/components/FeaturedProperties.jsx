@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { FaBed, FaBath, FaRulerCombined, FaMapMarkerAlt, FaHeart } from 'react-icons/fa';
 import { propertiesData } from '../data/propertiesData';
 import './FeaturedProperties.css';
@@ -8,10 +8,16 @@ import './FeaturedProperties.css';
 const FeaturedProperties = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.2 });
+    // Ensure animations run when navigating via router (mount fallback)
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+    const isVisible = isInView || mounted;
     const [filter, setFilter] = useState('All');
     const [favorites, setFavorites] = useState([]);
 
-    const filters = ['All', 'Villa', 'Apartment', 'Plot', 'Penthouse'];
+    const filters = ['All', 'Plot', 'House'];
 
     const filteredProperties = filter === 'All'
         ? propertiesData
@@ -31,7 +37,7 @@ const FeaturedProperties = () => {
                 <motion.div
                     className="section-header"
                     initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    animate={isVisible ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6 }}
                 >
                     <span className="section-subtitle">Featured Properties</span>
@@ -45,7 +51,7 @@ const FeaturedProperties = () => {
                 <motion.div
                     className="property-filters"
                     initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    animate={isVisible ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.2 }}
                 >
                     {filters.map((filterName) => (
@@ -66,15 +72,16 @@ const FeaturedProperties = () => {
                             key={property.id}
                             className="property-card"
                             initial={{ opacity: 0, y: 50 }}
-                            animate={isInView ? { opacity: 1, y: 0 } : {}}
+                            animate={isVisible ? { opacity: 1, y: 0 } : {}}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             whileHover={{ y: -10 }}
                         >
                             {/* Property Image */}
                             <div className="property-image">
-                                <div className="property-image-placeholder">
-                                    <FaMapMarkerAlt className="placeholder-icon" />
-                                </div>
+                                <img
+                                    src={property.image}
+                                    alt={property.title}
+                                />
                                 <div className="property-badge">{property.status}</div>
                                 <button
                                     className={`favorite-btn ${favorites.includes(property.id) ? 'favorite-active' : ''}`}
@@ -117,9 +124,16 @@ const FeaturedProperties = () => {
                                 </div>
 
                                 <div className="property-footer">
-                                    <div className="property-price">{property.price}</div>
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                                        <div className="property-price">{property.price}</div>
+                                        {property.totalPrice && (
+                                            <div style={{ fontSize: '0.9rem', color: '#666', fontWeight: '500' }}>
+                                                Total: {property.totalPrice}
+                                            </div>
+                                        )}
+                                    </div>
                                     <a
-                                        href={`https://wa.me/919848759376?text=Hi, I'm interested in ${property.title} - ${property.type} located at ${property.location}. Price: ${property.price}. Please provide more details.`}
+                                        href={`https://wa.me/917396528109?text=Hi, I'm interested in ${property.title} - ${property.type} located at ${property.location}. Area: ${property.area}, Price: ${property.price}. Please provide more details.`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="property-btn"
@@ -137,7 +151,7 @@ const FeaturedProperties = () => {
                     className="text-center"
                     style={{ marginTop: '3rem' }}
                     initial={{ opacity: 0 }}
-                    animate={isInView ? { opacity: 1 } : {}}
+                    animate={isVisible ? { opacity: 1 } : {}}
                     transition={{ duration: 0.6, delay: 0.8 }}
                 >
                     <motion.button

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import {
     FaFacebookF,
     FaTwitter,
@@ -16,11 +17,11 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     const quickLinks = [
-        { name: 'About Us', href: '#about' },
-        { name: 'Services', href: '#services' },
-        { name: 'Properties', href: '#properties' },
-        { name: 'Testimonials', href: '#testimonials' },
-        { name: 'Contact', href: '#contact' },
+        { name: 'Home', href: '/' },
+        { name: 'About Us', href: '/about' },
+        { name: 'Properties', href: '/properties' },
+        { name: 'Gallery', href: '/gallery' },
+        { name: 'Contact', href: '/contact' },
     ];
 
     const services = [
@@ -47,8 +48,8 @@ const Footer = () => {
                         <div className="footer-column">
                             <div className="footer-logo">
                                 <span className="logo-text">
-                                    <span className="logo-royal">ROYAL</span>
-                                    <span className="logo-estates">ESTATES</span>
+                                    <span style={{ color: 'var(--primary-gold)', fontWeight: 'bold' }}>RATNABHOOMI</span>
+                                    <span style={{ color: 'white', marginLeft: '5px' }}>INFRA</span>
                                 </span>
                             </div>
                             <p className="footer-description">
@@ -79,7 +80,7 @@ const Footer = () => {
                             <ul className="footer-links">
                                 {quickLinks.map((link, index) => (
                                     <li key={index}>
-                                        <a href={link.href}>{link.name}</a>
+                                        <Link to={link.href}>{link.name}</Link>
                                     </li>
                                 ))}
                             </ul>
@@ -103,11 +104,11 @@ const Footer = () => {
                             <div className="footer-contact">
                                 <div className="contact-item">
                                     <FaMapMarkerAlt />
-                                    <span>10/3/23, Yenugonda, Mahaboobnagar, Telangana - 509001</span>
+                                    <span>10-3-23, Hyderabad Main Road, Yenugonda, Mahabubnagar, Telangana - 509001</span>
                                 </div>
                                 <div className="contact-item">
                                     <FaPhone />
-                                    <a href="tel:+919440071176">+91 94400 71176</a>
+                                    <a href="tel:+917396528109">+91 7396 528 109</a>
                                 </div>
                                 <div className="contact-item">
                                     <FaEnvelope />
@@ -129,10 +130,10 @@ const Footer = () => {
                 <div className="container">
                     <div className="footer-bottom-content">
                         <p className="copyright">
-                            © {currentYear} Royal Estates. All Rights Reserved.
+                            © {currentYear} Ratnabhoomi Infra Projects. All Rights Reserved.
                         </p>
                         <p className="made-with">
-                            Made with <FaHeart className="heart-icon" /> by Royal Estates Team
+                            Made with <FaHeart className="heart-icon" /> by Ratnabhoomi Tech Team
                         </p>
                         <div className="footer-bottom-links">
                             <a href="#">Privacy Policy</a>

@@ -1,13 +1,15 @@
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import AboutSection from './components/AboutSection';
-import ServicesSection from './components/ServicesSection';
-import FeaturedProperties from './components/FeaturedProperties';
-import Testimonials from './components/Testimonials';
-import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import WhatsAppButton from './components/WhatsAppButton';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ServicesPage from './pages/ServicesPage';
+import PropertiesPage from './pages/PropertiesPage';
+import GalleryPage from './pages/GalleryPage';
+import ContactPage from './pages/ContactPage';
+import MVSColonyPage from './pages/MVSColonyPage';
 import './App.css';
 
 function App() {
@@ -15,12 +17,16 @@ function App() {
     <div className="App">
       <Navbar />
       <main>
-        <HeroSection />
-        <AboutSection />
-        <ServicesSection />
-        <FeaturedProperties />
-        <Testimonials />
-        <ContactSection />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          {/* <Route path="/services" element={<ServicesPage />} /> */}
+          <Route path="/projects/mvs-colony" element={<MVSColonyPage />} />
+          <Route path="/projects/devarakadra-municipality" element={<MVSColonyPage />} />
+          <Route path="/properties" element={<PropertiesPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
       </main>
       <Footer />
       <ScrollToTop />
@@ -30,4 +36,3 @@ function App() {
 }
 
 export default App;
-

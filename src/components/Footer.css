@@ -28,6 +28,20 @@
     font-size: 1.5rem;
 }
 
+/* Footer logo image */
+.footer-logo-image {
+    height: 80px;
+    width: auto;
+    display: block;
+    margin-bottom: 0.75rem;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+    background: var(--primary-white);
+    padding: 6px 10px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    object-fit: contain;
+}
+
 .footer-description {
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.7;
@@ -293,5 +307,24 @@
     .footer-links li span,
     .contact-item {
         font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-logo-image {
+        height: 60px;
+    }
+}
+
+/* Improve footer logo layout and hide long text on very small screens */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+@media (max-width: 420px) {
+    .footer-logo .logo-text {
+        display: none;
     }
 }

@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { FaBars, FaTimes, FaPhone, FaEnvelope } from 'react-icons/fa';
+import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaBars, FaTimes, FaPhone, FaEnvelope, FaChevronDown } from 'react-icons/fa';
 import './Navbar.css';
+import './NavbarDropdown.css';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -16,12 +20,14 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const scrollToSection = (sectionId) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-            setIsMobileMenuOpen(false);
-        }
+    // Close mobile menu when route changes
+    useEffect(() => {
+        setIsMobileMenuOpen(false);
+        setMobileProjectsOpen(false);
+    }, [location]);
+
+    const isActive = (path) => {
+        return location.pathname === path;
     };
 
     return (
@@ -30,8 +36,8 @@ const Navbar = () => {
             <div className="top-bar">
                 <div className="container top-bar-content">
                     <div className="top-bar-left">
-                        <a href="tel:+919440071176" className="top-bar-link">
-                            <FaPhone /> +91 94400 71176
+                        <a href="tel:+917396528109" className="top-bar-link">
+                            <FaPhone /> +91 7396 528 109
                         </a>
                         <a href="mailto:rathnabhoomiinfra@gmail.com" className="top-bar-link">
                             <FaEnvelope /> rathnabhoomiinfra@gmail.com
@@ -52,54 +58,61 @@ const Navbar = () => {
             >
                 <div className="container navbar-content">
                     {/* Logo */}
-                    <motion.div
-                        className="navbar-logo"
-                        whileHover={{ scale: 1.05 }}
-                        transition={{ duration: 0.3 }}
-                    >
-                        <span className="logo-text">
-                            <span className="logo-royal">ROYAL</span>
-                            <span className="logo-estates">ESTATES</span>
-                        </span>
-                    </motion.div>
+                    <Link to="/" className="navbar-logo-link">
+                        <motion.div
+                            className="navbar-logo"
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            <img
+                                src="/rathnabhoomi-logo.png"
+                                alt="Rathnabhoomi Infra Projects"
+                                className="logo-image"
+                            />
+                        </motion.div>
+                    </Link>
 
                     {/* Desktop Menu */}
                     <ul className="navbar-menu desktop-menu">
                         <li>
-                            <a onClick={() => scrollToSection('home')} className="nav-link">
+                            <Link to="/" className={`nav-link ${isActive('/') ? 'active' : ''}`}>
                                 Home
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a onClick={() => scrollToSection('about')} className="nav-link">
+                            <Link to="/about" className={`nav-link ${isActive('/about') ? 'active' : ''}`}>
                                 About
-                            </a>
+                            </Link>
+                        </li>
+                        <li className="nav-item-dropdown">
+                            <span className={`nav-link ${location.pathname.includes('/projects') ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                                Our Projects <FaChevronDown size={12} />
+                            </span>
+                            <div className="dropdown-menu">
+                                <Link to="/projects/mvs-colony" className="dropdown-item">MVS Colony</Link>
+                                <Link to="/projects/devarakadra-municipality" className="dropdown-item">Devarakadra Municipality</Link>
+                            </div>
                         </li>
                         <li>
-                            <a onClick={() => scrollToSection('services')} className="nav-link">
-                                Services
-                            </a>
-                        </li>
-                        <li>
-                            <a onClick={() => scrollToSection('properties')} className="nav-link">
+                            <Link to="/properties" className={`nav-link ${isActive('/properties') ? 'active' : ''}`}>
                                 Properties
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a onClick={() => scrollToSection('testimonials')} className="nav-link">
-                                Testimonials
-                            </a>
+                            <Link to="/gallery" className={`nav-link ${isActive('/gallery') ? 'active' : ''}`}>
+                                Gallery
+                            </Link>
                         </li>
                         <li>
-                            <a onClick={() => scrollToSection('contact')} className="nav-link">
+                            <Link to="/contact" className={`nav-link ${isActive('/contact') ? 'active' : ''}`}>
                                 Contact
-                            </a>
+                            </Link>
                         </li>
                     </ul>
 
                     {/* CTA Button */}
                     <motion.a
-                        href="https://wa.me/919440071176?text=Hi, I would like to get a quote for your construction and real estate services."
+                        href="https://wa.me/917396528109?text=Hi, I would like to get a quote for your construction and real estate services."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn btn-gold navbar-cta"
@@ -131,38 +144,56 @@ const Navbar = () => {
             >
                 <ul className="mobile-menu-list">
                     <li>
-                        <a onClick={() => scrollToSection('home')} className="mobile-nav-link">
+                        <Link to="/" className={`mobile-nav-link ${isActive('/') ? 'active' : ''}`}>
                             Home
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a onClick={() => scrollToSection('about')} className="mobile-nav-link">
+                        <Link to="/about" className={`mobile-nav-link ${isActive('/about') ? 'active' : ''}`}>
                             About
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a onClick={() => scrollToSection('services')} className="mobile-nav-link">
-                            Services
-                        </a>
+                        <div
+                            className={`mobile-nav-link ${location.pathname.includes('/projects') ? 'active' : ''}`}
+                            onClick={() => setMobileProjectsOpen(!mobileProjectsOpen)}
+                            style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+                        >
+                            Our Projects <FaChevronDown size={14} style={{ transform: mobileProjectsOpen ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.3s' }} />
+                        </div>
+                        <AnimatePresence>
+                            {mobileProjectsOpen && (
+                                <motion.div
+                                    className="mobile-dropdown"
+                                    initial={{ height: 0, opacity: 0 }}
+                                    animate={{ height: 'auto', opacity: 1 }}
+                                    exit={{ height: 0, opacity: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <Link to="/projects/mvs-colony" className="mobile-dropdown-item">MVS Colony</Link>
+                                    <Link to="/projects/devarakadra-municipality" className="mobile-dropdown-item">Devarakadra Municipality</Link>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </li>
                     <li>
-                        <a onClick={() => scrollToSection('properties')} className="mobile-nav-link">
+                        <Link to="/properties" className={`mobile-nav-link ${isActive('/properties') ? 'active' : ''}`}>
                             Properties
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a onClick={() => scrollToSection('testimonials')} className="mobile-nav-link">
-                            Testimonials
-                        </a>
+                        <Link to="/gallery" className={`mobile-nav-link ${isActive('/gallery') ? 'active' : ''}`}>
+                            Gallery
+                        </Link>
                     </li>
                     <li>
-                        <a onClick={() => scrollToSection('contact')} className="mobile-nav-link">
+                        <Link to="/contact" className={`mobile-nav-link ${isActive('/contact') ? 'active' : ''}`}>
                             Contact
-                        </a>
+                        </Link>
                     </li>
                     <li>
                         <a
-                            href="https://wa.me/919440071176?text=Hi, I would like to get a quote for your construction and real estate services."
+                            href="https://wa.me/917396528109?text=Hi, I would like to get a quote for your construction and real estate services."
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-gold"

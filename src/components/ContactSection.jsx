@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaWhatsapp } from 'react-icons/fa';
 import './ContactSection.css';
 
 const ContactSection = () => {
@@ -33,8 +33,14 @@ const ContactSection = () => {
         {
             icon: <FaPhone />,
             title: 'Call Us',
-            info: '+91 94400 71176',
-            link: 'tel:+919440071176'
+            info: '+91 7396 528 109',
+            link: 'tel:+917396528109'
+        },
+        {
+            icon: <FaWhatsapp />,
+            title: 'WhatsApp',
+            info: '+91 7396 528 109',
+            link: 'https://wa.me/917396528109'
         },
         {
             icon: <FaEnvelope />,
@@ -45,7 +51,7 @@ const ContactSection = () => {
         {
             icon: <FaMapMarkerAlt />,
             title: 'Visit Us',
-            info: '10/3/23, Yenugonda, Mahabubnagar - 509001',
+            info: '10-3-23, Hyderabad Main Road, Yenugonda, Mahabubnagar - 509001',
             link: '#'
         }
     ];
@@ -85,7 +91,7 @@ const ContactSection = () => {
                                         value={formData.name}
                                         onChange={handleChange}
                                         required
-                                        placeholder="John Doe"
+                                        placeholder="Enter your full name"
                                     />
                                 </div>
                                 <div className="form-group">
@@ -97,7 +103,7 @@ const ContactSection = () => {
                                         value={formData.email}
                                         onChange={handleChange}
                                         required
-                                        placeholder="john@example.com"
+                                        placeholder="Enter your email address"
                                     />
                                 </div>
                             </div>
@@ -112,7 +118,7 @@ const ContactSection = () => {
                                         value={formData.phone}
                                         onChange={handleChange}
                                         required
-                                        placeholder="+91 98765 43210"
+                                        placeholder="Enter your phone number"
                                     />
                                 </div>
                                 <div className="form-group">
@@ -124,7 +130,7 @@ const ContactSection = () => {
                                         value={formData.subject}
                                         onChange={handleChange}
                                         required
-                                        placeholder="Property Inquiry"
+                                        placeholder="Enter subject"
                                     />
                                 </div>
                             </div>
@@ -182,9 +188,9 @@ const ContactSection = () => {
                             <div className="map-placeholder">
                                 <FaMapMarkerAlt className="map-icon" />
                                 <h3>Our Location</h3>
-                                <p>10/3/23, Yenugonda, Mahaboobnagar, Telangana - 509001</p>
+                                <p>10-3-23, Hyderabad Main Road, Yenugonda, Mahabubnagar, Telangana - 509001</p>
                                 <a
-                                    href="https://www.google.com/maps/dir/?api=1&destination=10/3/23,Yenugonda,Mahaboobnagar,Telangana,509001"
+                                    href="https://www.google.com/maps/dir/?api=1&destination=10-3-23,Hyderabad Main Road,Yenugonda,Mahabubnagar,Telangana,509001"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="btn btn-outline"
