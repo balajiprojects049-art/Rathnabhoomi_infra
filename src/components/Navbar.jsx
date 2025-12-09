@@ -162,7 +162,7 @@ const Navbar = () => {
                         <div
                             className={`mobile-nav-link ${location.pathname.includes('/projects') ? 'active' : ''}`}
                             onClick={() => setMobileProjectsOpen(!mobileProjectsOpen)}
-                            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}
+                            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', width: '100%', margin: '0 auto' }}
                         >
                             Our Projects <FaChevronDown size={14} style={{ transform: mobileProjectsOpen ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.3s' }} />
                         </div>
