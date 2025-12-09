@@ -47,6 +47,7 @@ const MVSColonyPage = () => {
                 <p>The layout is <strong>MUDA Approved</strong> (Mahabubnagar Urban Development Authority) and registered under <strong>TBPASS</strong>, ensuring complete legal clarity and peace of mind for buyers.</p>
                 <ul style={{ marginTop: '1rem', listStyle: 'none', padding: 0 }}>
                     <li style={{ marginBottom: '0.5rem' }}>✅ <strong>LP No:</strong> 240845/LP/GP/280439/0008/2022</li>
+                    <li style={{ marginBottom: '0.5rem' }}>✅ <strong>LP No:</strong> 406973/LP/GP/205035/0028/2024</li>
                     <li style={{ marginBottom: '0.5rem' }}>✅ <strong>Status:</strong> Ready for Construction</li>
                     <li>✅ <strong>Type:</strong> Premium Residential Villa Plots</li>
                 </ul>
@@ -82,8 +83,8 @@ const MVSColonyPage = () => {
                 <ul style={{ marginLeft: '1.2rem' }}>
                     <li><strong>Connectivity:</strong> Direct access to Raichur Road and Hyderabad Main Road.</li>
                     <li><strong>Landmarks:</strong> Near Devarakadra Municipality Office, RTC Bus Stand, and Police Station.</li>
-                    <li><strong>Education & Health:</strong> Close to Govt. Junior College, Govt. 30 Bedded Hospital, and schools like SVTS.</li>
-                    <li><strong>Key Installations:</strong> Nearby Brahmos Missile Manufacturing Unit and collector office.</li>
+                    <li><strong>Education & Health:</strong> Close to Govt. Junior College, Govt. 30 Bedded Hospital, and schools like SVITS.</li>
+                    <li><strong>Key Installations:</strong> Nearby Proposed Brahmos Missile Manufacturing Unit and collector office.</li>
                 </ul>
             </ProjectSection >
 
@@ -111,7 +112,10 @@ const MVSColonyPage = () => {
                 <div className="container">
                     <h2 style={{ marginBottom: '20px', color: '#0074B7' }}>Interested in MVS Colony?</h2>
                     <p style={{ marginBottom: '30px', fontSize: '1.1rem' }}>Contact us today for site visits and booking enquiries.</p>
-                    <a href="/contact" className="btn btn-primary" style={{ padding: '12px 30px', fontSize: '1.1rem' }}>Contact Us Now</a>
+                    <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                        <a href="/contact" className="btn btn-primary" style={{ padding: '12px 30px', fontSize: '1.1rem' }}>Contact Us Now</a>
+                        <a href="https://maps.app.goo.gl/kSvzxHJdAvacVtmW6" target="_blank" rel="noopener noreferrer" className="btn btn-gold" style={{ padding: '12px 30px', fontSize: '1.1rem' }}>📍 Site Location</a>
+                    </div>
                 </div>
             </section >
         </div >

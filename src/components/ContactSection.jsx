@@ -190,7 +190,7 @@ const ContactSection = () => {
                                 <h3>Our Location</h3>
                                 <p>10-3-23, Hyderabad Main Road, Yenugonda, Mahabubnagar, Telangana - 509001</p>
                                 <a
-                                    href="https://www.google.com/maps/dir/?api=1&destination=10-3-23,Hyderabad Main Road,Yenugonda,Mahabubnagar,Telangana,509001"
+                                    href="https://maps.app.goo.gl/T9WPwrcJxMC9F47X9"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="btn btn-outline"

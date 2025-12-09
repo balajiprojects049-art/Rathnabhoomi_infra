@@ -134,13 +134,19 @@ const Navbar = () => {
             {/* Mobile Menu */}
             <motion.div
                 className={`mobile-menu ${isMobileMenuOpen ? 'mobile-menu-open' : ''}`}
-                initial={{ opacity: 0, x: '100%' }}
+                initial={{ opacity: 0 }}
                 animate={{
                     opacity: isMobileMenuOpen ? 1 : 0,
-                    x: isMobileMenuOpen ? 0 : '100%',
+                    pointerEvents: isMobileMenuOpen ? 'all' : 'none',
                 }}
                 transition={{ duration: 0.3 }}
             >
+                <button
+                    className="mobile-menu-close"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                >
+                    <FaTimes />
+                </button>
                 <ul className="mobile-menu-list">
                     <li>
                         <Link to="/" className={`mobile-nav-link ${isActive('/') ? 'active' : ''}`}>
