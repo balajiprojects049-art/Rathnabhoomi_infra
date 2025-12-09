@@ -132,9 +132,7 @@ const Footer = () => {
                         <p className="copyright">
                             © {currentYear} Ratnabhoomi Infra Projects. All Rights Reserved.
                         </p>
-                        <p className="made-with">
-                            Made with <FaHeart className="heart-icon" /> by Ratnabhoomi Tech Team
-                        </p>
+
                         <div className="footer-bottom-links">
                             <a href="#">Privacy Policy</a>
                             <span className="separator">|</span>

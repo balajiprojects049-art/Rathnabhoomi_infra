@@ -42,7 +42,7 @@ const ApprovedLayoutsSection = () => {
                         <img src="/muda-approved.jpg" alt="MUDA Approved" />
                     </div>
                     <div className="approval-logo-item">
-                        <img src="/tsrera-new.jpg" alt="TS RERA Registered" />
+                        <img src="/tsrera-new.jpg" alt="TG RERA Registered" />
                     </div>
                 </motion.div>
 
@@ -85,10 +85,10 @@ const ApprovedLayoutsSection = () => {
                         transition={{ duration: 0.6, delay: 0.5 }}
                     >
                         <div className="approval-image">
-                            <img src="/tsrera-logo.jpg" alt="TS RERA Registered - Telangana Real Estate Regulatory Authority" />
+                            <img src="/tsrera-logo.jpg" alt="TG RERA Registered - Telangana Real Estate Regulatory Authority" />
                         </div>
                         <div className="approval-info">
-                            <h3>TS RERA Registered</h3>
+                            <h3>TG RERA Registered</h3>
                             <p>Telangana Real Estate Regulatory Authority approved</p>
                         </div>
                     </motion.div>

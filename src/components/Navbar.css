@@ -110,6 +110,14 @@
     cursor: pointer;
     transition: color var(--transition-fast);
     padding: 0.5rem 0;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nav-link:focus,
+.nav-link:active {
+    outline: none;
+    border: none;
 }
 
 .nav-link::after {
@@ -213,7 +221,15 @@
     position: relative;
     letter-spacing: 0.5px;
     border-bottom: none;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
 }
+
+.mobile-nav-link:focus,
+.mobile-nav-link:active {
+    outline: none;
+}
+
 
 .mobile-nav-link:hover,
 .mobile-nav-link.active {
