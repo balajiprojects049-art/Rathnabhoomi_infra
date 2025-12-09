@@ -104,53 +104,9 @@ const HeroSection = () => {
                         high appreciation potential. Your perfect plot for building your dream home awaits.
                     </motion.p>
 
-                    <motion.div
-                        className="hero-cta"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 1 }}
-                    >
-                        <motion.button
-                            className="btn btn-gold btn-large"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            onClick={() => navigate('/properties')}
-                        >
-                            View Available Plots
-                        </motion.button>
 
-                        <motion.button
-                            className="btn btn-outline-white btn-large"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            onClick={() => navigate('/about')}
-                        >
-                            Our Services
-                        </motion.button>
-                    </motion.div>
 
-                    {/* Stats */}
-                    <motion.div
-                        className="hero-stats"
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 1.2 }}
-                    >
-                        <div className="stat-item">
-                            <h3 className="stat-value">500+</h3>
-                            <p className="stat-label">Projects Completed</p>
-                        </div>
-                        <div className="stat-divider"></div>
-                        <div className="stat-item">
-                            <h3 className="stat-value">15+</h3>
-                            <p className="stat-label">Years Experience</p>
-                        </div>
-                        <div className="stat-divider"></div>
-                        <div className="stat-item">
-                            <h3 className="stat-value">98%</h3>
-                            <p className="stat-label">Client Satisfaction</p>
-                        </div>
-                    </motion.div>
+
                 </motion.div>
             </div>
 

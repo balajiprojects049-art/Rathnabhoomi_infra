@@ -33,8 +33,8 @@ const ContactSection = () => {
         {
             icon: <FaPhone />,
             title: 'Call Us',
-            info: '+91 7396 528 109',
-            link: 'tel:+917396528109'
+            info: '+91 9440 071 176',
+            link: 'tel:+919440071176'
         },
         {
             icon: <FaWhatsapp />,

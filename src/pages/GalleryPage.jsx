@@ -6,20 +6,15 @@ const GalleryPage = () => {
     const [selectedImage, setSelectedImage] = useState(null);
 
     const images = [
-        { src: "/gallery/happy-customer-site.jpg", category: "Happy Customers", title: "Site Handover" },
+        { src: "/gallery/happy-customer-site.jpg", category: "Happy Customers", title: "Plot Booking" },
         { src: "/gallery/office-handover.jpg", category: "Celebrations", title: "Document Handover" },
         { src: "/gallery/team-visit.jpg", category: "Site Visits", title: "Team Inspection" },
         { src: "/gallery/customer-success-stories-1.jpg", category: "Success Stories", title: "Growing Family" },
         { src: "/gallery/customer-success-stories-2.jpg", category: "Success Stories", title: "Trust & Transparency" },
-        { src: "/gallery/site-visit-group.jpg", category: "Site Visits", title: "Group Site Visit" },
-        { src: "/gallery/customer-satisfaction-1.jpg", category: "Happy Customers", title: "Satisfied Investors" },
-        { src: "/gallery/site-discussion.jpg", category: "Site Visits", title: "On-Site Discussion" },
-        { src: "/gallery/office-meeting.jpg", category: "Team", title: "Office Meeting" },
-        { src: "/gallery/field-team.jpg", category: "Team", title: "Field Team" },
-        { src: "/projects/mvs-hero.jpg", category: "Open Plots", title: "MVS Colony Brochure" },
-        { src: "/projects/mvs-layout.jpg", category: "Layouts", title: "Master Layout Plan" },
-        { src: "/projects/mvs-location.jpg", category: "Location", title: "Strategic Location Map" },
-        { src: "/projects/mvs-header-bg.png", category: "Landscapes", title: "Scenic Views" },
+        { src: "/gallery/site-visit-group.jpg", category: "Bookings", title: "Plot Booking" },
+        { src: "/gallery/customer-satisfaction-1.jpg", category: "Team Growth", title: "Welcoming New Marketing Professionals" },
+        { src: "/gallery/site-discussion.jpg", category: "Site Visits", title: "Team Discussion" },
+        { src: "/gallery/field-team.jpg", category: "Team Growth", title: "Welcoming New Marketing Professionals" },
     ];
 
     return (

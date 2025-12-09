@@ -1,11 +1,16 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import './ApprovedLayoutsSection.css';
 
 const ApprovedLayoutsSection = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.3 });
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+    const isVisible = isInView || mounted;
 
     return (
         <section className="section approved-layouts-section" ref={ref}>
@@ -14,24 +19,31 @@ const ApprovedLayoutsSection = () => {
                 <motion.div
                     className="approvals-header"
                     initial={{ opacity: 0, y: 30 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    animate={isVisible ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6 }}
                 >
                     <h2 className="approvals-title">Approved Layouts</h2>
                 </motion.div>
 
-                {/* Approval Logos Banner */}
+                {/* Unified Approval Logos Card */}
                 <motion.div
-                    className="approvals-banner"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                    className="approval-unified-card"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isVisible ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                    <img
-                        src="/approved-layouts-banner.png"
-                        alt="HMDA, DTCP Approved, TS RERA Approved Layouts"
-                        className="banner-image"
-                    />
+                    <div className="approval-logo-item">
+                        <img src="/hmda-new.jpg" alt="HMDA Approved" />
+                    </div>
+                    <div className="approval-logo-item">
+                        <img src="/dtcp-new.jpg" alt="DTCP Approved" />
+                    </div>
+                    <div className="approval-logo-item">
+                        <img src="/muda-approved.jpg" alt="MUDA Approved" />
+                    </div>
+                    <div className="approval-logo-item">
+                        <img src="/tsrera-new.jpg" alt="TS RERA Registered" />
+                    </div>
                 </motion.div>
 
                 {/* Individual Approval Cards */}
@@ -39,7 +51,7 @@ const ApprovedLayoutsSection = () => {
                     <motion.div
                         className="approval-card"
                         initial={{ opacity: 0, y: 30 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        animate={isVisible ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.6, delay: 0.3 }}
                     >
                         <div className="approval-image">
@@ -54,7 +66,7 @@ const ApprovedLayoutsSection = () => {
                     <motion.div
                         className="approval-card"
                         initial={{ opacity: 0, y: 30 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        animate={isVisible ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.6, delay: 0.4 }}
                     >
                         <div className="approval-image">
@@ -69,7 +81,7 @@ const ApprovedLayoutsSection = () => {
                     <motion.div
                         className="approval-card"
                         initial={{ opacity: 0, y: 30 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        animate={isVisible ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.6, delay: 0.5 }}
                     >
                         <div className="approval-image">
@@ -86,7 +98,7 @@ const ApprovedLayoutsSection = () => {
                 <motion.div
                     className="trust-message"
                     initial={{ opacity: 0 }}
-                    animate={isInView ? { opacity: 1 } : {}}
+                    animate={isVisible ? { opacity: 1 } : {}}
                     transition={{ duration: 0.8, delay: 0.6 }}
                 >
                     <p>All our layouts are legally approved and comply with government regulations, ensuring 100% safe and secure investment for your future.</p>

@@ -16,6 +16,7 @@ const FeaturedProperties = () => {
     const isVisible = isInView || mounted;
     const [filter, setFilter] = useState('All');
     const [favorites, setFavorites] = useState([]);
+    const [showModal, setShowModal] = useState(false);
 
     const filters = ['All', 'Plot', 'House'];
 
@@ -90,7 +91,7 @@ const FeaturedProperties = () => {
                                     <FaHeart />
                                 </button>
                                 <div className="property-overlay">
-                                    <button className="btn btn-gold btn-small">View Details</button>
+                                    <button className="btn btn-gold btn-small" onClick={() => setShowModal(true)}>View Details</button>
                                 </div>
                             </div>
 
@@ -162,6 +163,16 @@ const FeaturedProperties = () => {
                         View All Properties
                     </motion.button>
                 </motion.div>
+
+                {/* Layout Details Modal */}
+                {showModal && (
+                    <div className="layout-modal" onClick={() => setShowModal(false)}>
+                        <div className="layout-modal-content" onClick={(e) => e.stopPropagation()}>
+                            <button className="modal-close-btn" onClick={() => setShowModal(false)}>×</button>
+                            <img src="/mvs-full-layout.jpg" alt="MVS Colony Master Layout Plan" />
+                        </div>
+                    </div>
+                )}
             </div>
         </section>
     );

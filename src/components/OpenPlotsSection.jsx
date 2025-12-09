@@ -1,11 +1,16 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import './OpenPlotsSection.css';
 
 const OpenPlotsSection = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.3 });
+    const [mounted, setMounted] = useState(false);
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+    const isVisible = isInView || mounted;
 
     return (
         <section className="section open-plots-section" id="plots" ref={ref}>
@@ -15,7 +20,7 @@ const OpenPlotsSection = () => {
                     <motion.div
                         className="company-text-content"
                         initial={{ opacity: 0, x: -50 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : {}}
+                        animate={isVisible ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 0.6 }}
                     >
                         <h2 className="company-main-title">RATNABHOOMI INFRA PROJECTS</h2>
@@ -37,7 +42,7 @@ const OpenPlotsSection = () => {
                     <motion.div
                         className="company-image-content"
                         initial={{ opacity: 0, x: 50 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : {}}
+                        animate={isVisible ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
                         <div className="company-main-image">

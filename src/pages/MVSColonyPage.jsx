@@ -39,7 +39,7 @@ const MVSColonyPage = () => {
             {/* Project Overview Section */}
             < ProjectSection
                 title="Project Overview & Highlights"
-                image="/projects/mvs-hero.jpg"
+                image="/projects/mvs-cover.jpg"
                 imageAlt="MVS Colony Brochure"
                 reverse={false}
             >
@@ -55,7 +55,7 @@ const MVSColonyPage = () => {
             {/* Layout Plan Section */}
             < ProjectSection
                 title="Master Layout Plan"
-                image="/projects/mvs-layout.jpg"
+                image="/projects/mvs-masterplan.jpg"
                 imageAlt="MVS Colony Master Plan"
                 reverse={true}
             >
@@ -73,7 +73,7 @@ const MVSColonyPage = () => {
             {/* Location Section */}
             < ProjectSection
                 title="Strategic Location & Connectivity"
-                image="/projects/mvs-location.jpg"
+                image="/projects/mvs-locationmap.jpg"
                 imageAlt="MVS Colony Location Map"
                 reverse={false}
             >
@@ -90,7 +90,7 @@ const MVSColonyPage = () => {
             {/* Investment Benefits Section */}
             < ProjectSection
                 title="Why Invest in MVS Colony?"
-                image="/projects/mvs-benefits.jpg"
+                image="/projects/mvs-highlights.jpg"
                 imageAlt="Investment Benefits"
                 reverse={true}
             >

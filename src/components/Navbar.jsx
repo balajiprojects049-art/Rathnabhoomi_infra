@@ -36,8 +36,8 @@ const Navbar = () => {
             <div className="top-bar">
                 <div className="container top-bar-content">
                     <div className="top-bar-left">
-                        <a href="tel:+917396528109" className="top-bar-link">
-                            <FaPhone /> +91 7396 528 109
+                        <a href="tel:+919440071176" className="top-bar-link">
+                            <FaPhone /> +91 9440 071 176
                         </a>
                         <a href="mailto:rathnabhoomiinfra@gmail.com" className="top-bar-link">
                             <FaEnvelope /> rathnabhoomiinfra@gmail.com
@@ -89,8 +89,7 @@ const Navbar = () => {
                                 Our Projects <FaChevronDown size={12} />
                             </span>
                             <div className="dropdown-menu">
-                                <Link to="/projects/mvs-colony" className="dropdown-item">MVS Colony</Link>
-                                <Link to="/projects/devarakadra-municipality" className="dropdown-item">Devarakadra Municipality</Link>
+                                <Link to="/projects/mvs-colony" className="dropdown-item">MVS Colony (Devarakadra Municipality)</Link>
                             </div>
                         </li>
                         <li>
@@ -170,8 +169,7 @@ const Navbar = () => {
                                     exit={{ height: 0, opacity: 0 }}
                                     transition={{ duration: 0.3 }}
                                 >
-                                    <Link to="/projects/mvs-colony" className="mobile-dropdown-item">MVS Colony</Link>
-                                    <Link to="/projects/devarakadra-municipality" className="mobile-dropdown-item">Devarakadra Municipality</Link>
+                                    <Link to="/projects/mvs-colony" className="mobile-dropdown-item">MVS Colony (Devarakadra Municipality)</Link>
                                 </motion.div>
                             )}
                         </AnimatePresence>
